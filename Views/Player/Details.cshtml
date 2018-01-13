@@ -1,0 +1,13 @@
+@model ScoreKeeper.Models.Player
+
+<h1>@Model.Name</h1>
+
+@Html.DisplayForModel()
+
+<h3>Scores</h3>
+<ul>
+    foreach(var score in Model.Scores)
+    {
+        <li>@score.Value</li>
+    }
+</ul>
