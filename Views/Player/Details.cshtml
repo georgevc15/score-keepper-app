@@ -4,6 +4,11 @@
 
 @Html.DisplayForModel()
 
+<form asp-action="AddScore" asp-controller="Player" asp-route-id="@Model.Id">
+    <input type="number" name="Value" id="Value" />
+    <input type="submit" name="Add Score" />
+</form>
+
 <h3>Scores</h3>
 <ul>
     foreach(var score in Model.Scores)

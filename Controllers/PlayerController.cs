@@ -51,6 +51,15 @@ namespace ScoreKeeper.Controllers
             var model = _context.Players.Include(e => e.Scores).FirstOrDefault(e => e.id == id);
             return View(model);
         }
+
+        
+        public IActionResult AddScore(int id, int value)
+        {
+            _context.Players.Include(e => e.Scores).FirstOrDefault(e => e.Id ==id).Scores.Add(new Score{Value = value});
+            _context.SaveChanges();
+            return RedirectToAction("Details", "Player", new {Id = id});
+        }
+
     }
 
 }
